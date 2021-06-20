@@ -43,7 +43,7 @@ const App: React.FC = () => {
         <p>Loading...</p>
       )}
       <hr />
-      <EnterForm changeValue={changeValue} />
+      <EnterForm changeValue={changeValue} value={data.enterAmount} />
     </div>
   );
 };
