@@ -1,6 +1,23 @@
+$common-color: #343a40;
+
 div {
   text-align: center;
-  h1 {
+  h1,
+  p {
     font-size: 3rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    color: $common-color;
+    border-bottom: 1px solid $common-color;
+    padding-bottom: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid $common-color;
+    border-radius: 10px;
+    padding: 1rem;
   }
 }
