@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.scss";
-import web3 from "./utils/web3";
 
 const App: React.FC = () => {
+  console.log(process.env);
   return (
     <div>
       <h1>Learn-React</h1>
