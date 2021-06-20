@@ -8,7 +8,7 @@ const App: React.FC = () => {
     setManager(await lottery.methods.manager().call());
   }, []);
   React.useEffect(() => {
-    getManagerData();
+    getManagerData(); // getting the manager data from the contract on load
   }, [getManagerData]);
   return (
     <div>
