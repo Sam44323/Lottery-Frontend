@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.scss";
+import web3 from "./utils/web3";
 
 const App: React.FC = () => {
   return (
