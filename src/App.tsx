@@ -21,7 +21,7 @@ const App: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    getManagerData(); // getting the manager data from the contract on load
+    getManagerData();
   }, [getManagerData]);
 
   const changeValue = React.useCallback((data: string) => {
