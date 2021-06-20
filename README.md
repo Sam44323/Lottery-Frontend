@@ -12,6 +12,7 @@
 
 - Typescript
 - React
+- SCSS (CSS Preprocessor)
 
 ---
 
