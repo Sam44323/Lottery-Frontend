@@ -26,8 +26,8 @@ const App: React.FC = () => {
       {data.manager ? (
         <p>
           This contract is managed by {data.manager}.<br /> There are currently{" "}
-          {data.players.length} people entered, competing to win {data.balance}{" "}
-          ether!
+          {data.players.length} people entered, competing to win{" "}
+          {web3.utils.fromWei(data.balance, "ether")} ether!
         </p>
       ) : (
         <p>Loading...</p>
