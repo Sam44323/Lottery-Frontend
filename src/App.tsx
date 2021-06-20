@@ -4,6 +4,7 @@ import lottery from "./utils/lottery";
 
 const App: React.FC = () => {
   const [manager, setManager] = React.useState<string>("");
+
   const getManagerData = React.useCallback(async () => {
     setManager(await lottery.methods.manager().call());
   }, []);
