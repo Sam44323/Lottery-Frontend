@@ -23,3 +23,5 @@ node compile.js // for compiling the contract
 yarn test // for testing the contract code
 
 ```
+
+---
