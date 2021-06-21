@@ -38,11 +38,16 @@ const App: React.FC = () => {
   }, []);
 
   const enterLotteryHandler = React.useCallback(
-    (e: FormEvent) => {
+    async (e: FormEvent) => {
       e.preventDefault();
-      console.log(data.enterAmount);
+      const account = await web3.eth.getAccounts(); // getting the accounts from the user machine
+      // entering the user to the lottery
+      await lottery.methods.enter().send({
+        from: account[0],
+        value: web3.utils.toWei(data.balance, "ether"),
+      });
     },
-    [data.enterAmount]
+    [data.balance]
   );
 
   return (
