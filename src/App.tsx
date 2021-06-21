@@ -4,9 +4,15 @@ import lottery from "./utils/lottery";
 import { AppInterface } from "./utils/interfaces";
 import web3 from "./utils/web3";
 import EnterForm from "./components/EnterForm";
+import { FormEvent } from "react";
 
 const App: React.FC = () => {
-  const [data, setData] = React.useState<AppInterface>({} as AppInterface);
+  const [data, setData] = React.useState<AppInterface>({
+    manager: "",
+    players: [""],
+    balance: "",
+    enterAmount: "",
+  });
 
   const getManagerData = React.useCallback(async () => {
     const manager = await lottery.methods.manager().call();
@@ -30,6 +36,15 @@ const App: React.FC = () => {
       enterAmount: data,
     }));
   }, []);
+
+  const enterLotteryHandler = React.useCallback(
+    (e: FormEvent) => {
+      e.preventDefault();
+      console.log(data.enterAmount);
+    },
+    [data.enterAmount]
+  );
+
   return (
     <div>
       <h1>Lottery Contract</h1>
@@ -43,7 +58,11 @@ const App: React.FC = () => {
         <p>Loading...</p>
       )}
       <hr />
-      <EnterForm changeValue={changeValue} value={data.enterAmount} />
+      <EnterForm
+        changeValue={changeValue}
+        value={data.enterAmount}
+        enterHandler={enterLotteryHandler}
+      />
     </div>
   );
 };

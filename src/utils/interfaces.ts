@@ -8,5 +8,5 @@ export interface AppInterface {
 export interface EnterFormInt {
   changeValue: (data: string) => void;
   value: string;
-  enterHandler: () => void;
+  enterHandler: (e: any) => void;
 }
