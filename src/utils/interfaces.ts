@@ -5,6 +5,7 @@ export interface AppInterface {
   players: string[];
   balance: string;
   enterAmount: string;
+  message?: string;
 }
 
 export interface EnterFormInt {

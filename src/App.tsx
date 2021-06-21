@@ -40,14 +40,34 @@ const App: React.FC = () => {
   const enterLotteryHandler = React.useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
+      setData((prev) => ({
+        ...prev,
+        message: "Entering you to the lottery! Please wait...",
+      }));
+      let players: string[];
       const account = await web3.eth.getAccounts(); // getting the accounts from the user machine
       // entering the user to the lottery
-      await lottery.methods.enter().send({
-        from: account[0],
-        value: web3.utils.toWei(data.balance, "ether"),
-      });
+      try {
+        await lottery.methods.enter().send({
+          from: account[0],
+          value: web3.utils.toWei(data.enterAmount, "ether"),
+        });
+        players = await lottery.methods.getAllPLayers().call();
+      } catch (err) {
+        console.log(err);
+        setData((prev) => ({
+          ...prev,
+          message: "Some error occurred!",
+        }));
+      }
+      setData((prev) => ({
+        ...prev,
+        players,
+        message:
+          "You have successfully entered into the lottery. Best of Luck!",
+      }));
     },
-    [data.balance]
+    [data.enterAmount]
   );
 
   return (
@@ -68,6 +88,8 @@ const App: React.FC = () => {
         value={data.enterAmount}
         enterHandler={enterLotteryHandler}
       />
+      <hr />
+      {data.message}
     </div>
   );
 };
