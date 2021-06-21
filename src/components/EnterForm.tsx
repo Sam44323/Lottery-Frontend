@@ -1,4 +1,5 @@
 import React from "react";
+import "./EnterForm.scss";
 import { EnterFormInt } from "../utils/interfaces";
 
 const EnterForm: React.FC<EnterFormInt> = ({
