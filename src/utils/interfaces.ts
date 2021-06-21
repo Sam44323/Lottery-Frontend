@@ -1,3 +1,5 @@
+import { FormEvent } from "react";
+
 export interface AppInterface {
   manager: string;
   players: string[];
@@ -8,5 +10,5 @@ export interface AppInterface {
 export interface EnterFormInt {
   changeValue: (data: string) => void;
   value: string;
-  enterHandler: (e: any) => void;
+  enterHandler: (e: FormEvent) => void;
 }

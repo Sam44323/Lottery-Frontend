@@ -7,13 +7,13 @@ const EnterForm: React.FC<EnterFormInt> = ({
   enterHandler,
 }) => {
   return (
-    <form>
+    <form onSubmit={(e) => enterHandler(e)}>
       <h1>Want to try your luck?</h1>
       <div>
         <label>Amount of ether to enter</label>
         <input onChange={(e) => changeValue(e.target.value)} value={value} />
       </div>
-      <button onClick={(e) => enterHandler(e)}>Enter</button>
+      <button>Enter</button>
     </form>
   );
 };
