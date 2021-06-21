@@ -6,6 +6,7 @@ export interface AppInterface {
   balance: string;
   enterAmount: string;
   message?: string;
+  winner?: string;
 }
 
 export interface EnterFormInt {

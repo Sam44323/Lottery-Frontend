@@ -70,6 +70,13 @@ const App: React.FC = () => {
     [data.enterAmount]
   );
 
+  const pickAWinnerHandler = async () => {
+    setData((prev) => ({
+      ...prev,
+      message: "Picking the winner",
+    }));
+  };
+
   return (
     <div>
       <h1>Lottery Contract</h1>
@@ -88,6 +95,9 @@ const App: React.FC = () => {
         value={data.enterAmount}
         enterHandler={enterLotteryHandler}
       />
+      <hr />
+      <h4>Ready to pick a winner?</h4>
+      <button onClick={pickAWinnerHandler}>Pick a Winner</button>
       <hr />
       {data.message}
     </div>
