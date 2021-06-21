@@ -1,9 +1,11 @@
 import React from "react";
+import { EnterFormInt } from "../utils/interfaces";
 
-const EnterForm: React.FC<{
-  changeValue: (data: string) => void;
-  value: string;
-}> = ({ changeValue, value }) => {
+const EnterForm: React.FC<EnterFormInt> = ({
+  changeValue,
+  value,
+  enterHandler,
+}) => {
   return (
     <form>
       <h1>Want to try your luck?</h1>
@@ -11,7 +13,7 @@ const EnterForm: React.FC<{
         <label>Amount of ether to enter</label>
         <input onChange={(e) => changeValue(e.target.value)} value={value} />
       </div>
-      <button>Enter</button>
+      <button onClick={enterHandler}>Enter</button>
     </form>
   );
 };

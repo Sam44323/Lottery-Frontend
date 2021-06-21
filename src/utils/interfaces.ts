@@ -4,3 +4,9 @@ export interface AppInterface {
   balance: string;
   enterAmount: string;
 }
+
+export interface EnterFormInt {
+  changeValue: (data: string) => void;
+  value: string;
+  enterHandler: () => void;
+}
