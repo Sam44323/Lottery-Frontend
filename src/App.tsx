@@ -75,6 +75,18 @@ const App: React.FC = () => {
       ...prev,
       message: "Picking the winner",
     }));
+    const accounts = await web3.eth.getAccounts();
+    try {
+      await lottery.methods.pickWinner().send({
+        from: accounts[0],
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    setData((prev) => ({
+      ...prev,
+      message: "We've picker a winner!",
+    }));
   };
 
   return (
